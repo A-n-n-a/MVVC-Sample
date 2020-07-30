@@ -16,7 +16,6 @@ class NetworkManager {
     
     static func getWeather(for city: String, completion: Completion) {
         let cityUrl = String(format: url, city)
-        print(cityUrl)
         guard let url = URL(string: cityUrl) else { return }
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
@@ -24,7 +23,6 @@ class NetworkManager {
         let task = session.dataTask(with: request) { (data, response, error) in
             if let data = data {
                 do {
-                    print("RESPONSE:\n\(try JSONSerialization.jsonObject(with: data, options: .allowFragments))")
                     let object = try JSONDecoder().decode(Weather.self, from: data)
                     completion?(object, nil)
                 } catch {

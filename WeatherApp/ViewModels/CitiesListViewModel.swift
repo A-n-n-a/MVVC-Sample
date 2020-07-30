@@ -15,8 +15,7 @@ class CitiesListViewModel {
                   City(name: "Miami"),
                   City(name: "Dubai"),
                   City(name: "Paris"),
-                  City(name: "Bangkok"),
-                  City(name: "Singapore")]
+                  City(name: "Bangkok")]
     
     func getWeather(completion: @escaping ((_ success: Bool, _ error: Error?) -> Void)) {
         var err: Error?
